@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Abeera Khan &mdash; Photography</title>
+
+  <meta name="description"
+    content="Fashion and editorial portfolio of New York photographer Abeera Khan. Shooting for State, NEXT, and global agencies.">
+  <meta name="author" content="Abeera Khan">
+  <meta name="theme-color" content="#f6f4f0">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Editorial Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://format.creatorcdn.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Inter+Tight:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-view="runway">
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+
+      <!-- Brand -->
+      <a href="#" class="brand" id="brand-logo" aria-label="Abeera Khan, back to start">
+        <span class="brand-mark" aria-hidden="true">AK</span>
+        <span class="brand-text">
+          <span class="brand-name">Abeera Khan</span>
+          <span class="brand-role">Photographer &mdash; New York</span>
+        </span>
+      </a>
+
+      <!-- View Modes (centre) -->
+      <div class="view-switcher" role="group" aria-label="View format">
+        <button class="view-btn active" data-view="runway">Runway</button>
+        <button class="view-btn" data-view="grid">Index</button>
+        <button class="view-btn" data-view="cinema">Cinema</button>
+      </div>
+
+      <!-- Actions (right) -->
+      <nav class="header-nav" aria-label="Primary">
+        <button class="nav-link filter-btn" id="filter-trigger-btn" aria-expanded="false" aria-controls="series-ribbon">
+          <span>Series</span>
+          <em class="filter-current" id="current-filter-name">All</em>
+          <svg class="chevron" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <button class="nav-link" id="open-about-btn">About</button>
+        <button class="nav-link nav-cta" id="open-contact-btn">Inquire<span class="cta-arrow"
+            aria-hidden="true">&nearr;</span></button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-trigger" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"
+          aria-controls="mobile-menu">
+          <span class="mmt-text">Menu</span>
+          <span class="mmt-lines" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Series Ribbon (populated by JS) -->
+    <div class="series-bar" id="series-ribbon">
+      <div class="series-list" id="series-list"></div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mm-inner">
+      <nav class="mm-primary" aria-label="Menu">
+        <button class="mm-link mob-btn active" data-view="runway">Runway</button>
+        <button class="mm-link mob-btn" data-view="grid">Index</button>
+        <button class="mm-link mob-btn" data-view="cinema">Cinema</button>
+        <button class="mm-link" id="mm-about-btn">About</button>
+        <button class="mm-link" id="mm-inquire-btn">Inquire</button>
+      </nav>
+      <div class="mm-group">
+        <span class="mm-label">Series</span>
+        <div class="mm-series" id="mm-series"></div>
+      </div>
+      <div class="mm-footer">
+        <a href="mailto:abeerakhanphotography@gmail.com" class="mm-email">abeerakhanphotography@gmail.com</a>
+        <div class="mm-social">
+          <a href="https://instagram.com/abeerahk" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/abeerahk" target="_blank" rel="noopener">Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="gallery-viewport" id="main-viewport">
+
+    <!-- 1. RUNWAY VIEW -->
+    <section class="runway-section active" id="runway-view" aria-label="Runway Gallery">
+      <div class="runway-scroller" id="runway-scroll-wrapper">
+        <div class="runway-track" id="runway-track">
+
+          <!-- Opening Title -->
+          <div class="runway-item intro-item" id="intro-slide">
+            <div class="intro-box">
+              <span class="eyebrow reveal-up" style="--d: 0.05s">Portfolio &mdash; New York City</span>
+              <div>
+                <h1 class="intro-title">
+                  <span class="line-mask"><span class="reveal-line" style="--d: 0.15s">Abeera</span></span>
+                  <span class="line-mask"><span class="reveal-line" style="--d: 0.28s"><em>Khan</em></span></span>
+                </h1>
+                <p class="intro-subtitle reveal-up" style="--d: 0.45s">Photographer &amp; retoucher working across
+                  editorial, fashion, beauty and fitness.</p>
+              </div>
+              <div class="intro-foot reveal-up" style="--d: 0.6s">
+                <div class="intro-representation">
+                  <span class="rep-label">Shooting for</span>
+                  <p class="rep-text">State Model Management<br>NEXT Models<br>BESPOKE</p>
+                </div>
+                <div class="scroll-prompt">
+                  <span class="prompt-line" aria-hidden="true"></span>
+                  <span class="prompt-text">Scroll to explore</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Gallery Cards (Injected by JS, no numbers) -->
+          <div id="runway-cards-container" class="runway-cards-row"></div>
+
+          <!-- Closing Card -->
+          <div class="runway-item outro-item" id="outro-slide">
+            <div class="outro-box">
+              <span class="eyebrow">Bookings &amp; Inquiries</span>
+              <div>
+                <h2 class="outro-title">Let&rsquo;s make<br><em>something.</em></h2>
+                <p class="outro-text">Available for editorial shoots, agency tests, campaigns, and retouching
+                  worldwide.</p>
+                <a href="mailto:abeerakhanphotography@gmail.com" class="direct-email-link">
+                  abeerakhanphotography@gmail.com
+                </a>
+              </div>
+              <div class="outro-foot">
+                <div class="outro-social-list">
+                  <a href="https://instagram.com/abeerahk" target="_blank" rel="noopener">Instagram</a>
+                  <a href="https://twitter.com/abeerahk" target="_blank" rel="noopener">Twitter</a>
+                </div>
+                <p class="outro-copy">&copy; 2026 Abeera Khan. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. GRID / INDEX VIEW -->
+    <section class="grid-section" id="grid-view" aria-label="Index View">
+      <div class="grid-container">
+        <header class="grid-heading-row">
+          <div class="grid-heading-main">
+            <span class="eyebrow">The Archive</span>
+            <h2 class="grid-main-title">Index <em>of Works</em></h2>
+          </div>
+          <div class="grid-heading-side">
+            <p class="grid-intro">Editorial, fashion, beauty and fitness work, gathered by series. Select any
+              photograph to view it in full.</p>
+            <span id="grid-stats-count" class="grid-counter"></span>
+          </div>
+        </header>
+        <div class="index-groups" id="editorial-grid"></div>
+      </div>
+    </section>
+
+    <!-- 3. CINEMA VIEW -->
+    <section class="cinema-section" id="cinema-view" aria-label="Cinema Slideshow">
+      <div class="cinema-ambient" id="cinema-ambient" aria-hidden="true"></div>
+      <div class="cinema-container">
+        <div class="cinema-photo-box">
+          <img src="" alt="" id="cinema-image" class="cinema-photo">
+        </div>
+        <div class="cinema-caption-bar">
+          <div class="cinema-title-wrap">
+            <h3 class="cinema-name" id="cinema-title"></h3>
+            <span class="cinema-category-tag" id="cinema-category"></span>
+          </div>
+          <div class="cinema-nav-controls">
+            <button class="cinema-btn" id="cinema-prev" aria-label="Previous">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="cinema-btn play-btn" id="cinema-play-pause" aria-label="Play or pause slideshow">
+              <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="6 3 20 12 6 21 6 3" />
+              </svg>
+              <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16" />
+                <rect x="14" y="4" width="4" height="16" />
+              </svg>
+            </button>
+            <button class="cinema-btn" id="cinema-next" aria-label="Next">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="cinema-timer" aria-hidden="true"><span id="cinema-timer-fill"></span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RUNWAY HUD -->
+  <footer class="editorial-hud" id="runway-hud">
+    <div class="hud-content">
+      <span class="hud-label" id="hud-series-label">Selected Works</span>
+
+      <div class="hud-center">
+        <button class="hud-arrow-btn" id="hud-prev-btn" aria-label="Previous" title="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 12H5M11 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div class="hud-rail" id="hud-scrubber" role="slider" aria-label="Gallery position" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="0" tabindex="0">
+          <div class="hud-progress" id="hud-progress-fill"></div>
+          <div class="hud-thumb" id="hud-scrubber-handle"></div>
+        </div>
+
+        <button class="hud-arrow-btn" id="hud-next-btn" aria-label="Next" title="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+
+      <span class="hud-hint">Scroll, drag or use arrow keys</span>
+    </div>
+  </footer>
+
+  <!-- ABOUT DRAWER -->
+  <div class="drawer-scrim" id="about-backdrop"></div>
+  <aside class="bio-drawer" id="about-drawer" aria-hidden="true" role="dialog" aria-label="About Abeera Khan" tabindex="-1">
+    <div class="drawer-header">
+      <span class="drawer-label">About</span>
+      <button class="drawer-close" id="close-about-btn" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-content">
+      <figure class="bio-hero">
+        <img
+          src="https://format.creatorcdn.com/b33f0400-1dea-491b-b287-36917df64e36/0/0/0/0,837,2576,3413,760,760,1/0-0-0/5721950c-cc4e-45bc-b305-23f0a7f352c9/1/2/BUTTERFLY23.jpg?fjkss=exp=2106298341~hmac=614c47a3e5cc534d7934aaa158cdd0871d15f6cdf2f86c786cd5487f95441384"
+          alt="Portrait of Abeera Khan" class="bio-img" loading="lazy">
+      </figure>
+
+      <div class="drawer-body">
+      <div class="bio-title-wrap">
+        <span class="eyebrow">Photographer &amp; Retoucher &mdash; NYC</span>
+        <h2 class="bio-artist-name">Abeera <em>Khan</em></h2>
+        <span class="bio-alias">a.k.a. &ldquo;fat snacks&rdquo;</span>
+      </div>
+
+      <div class="bio-body">
+        <p>My name is Abeera, but people like to call me <em>"fat snacks"</em>. I'm a 26 year old Photographer and
+          Retoucher based out of New York City.</p>
+
+        <p>Currently shooting for <strong>State</strong> and <strong>NEXT</strong>, and freelance retouching for
+          <strong>BESPOKE</strong>, I've also indulged in the fitness industry in both aspects of creative work, and
+          training.</p>
+
+        <p>I have been collaborating with professionals in the photo, food, beauty, and fitness industry for some time
+          now and continue to work with agencies, studios, and creatives around the world.</p>
+
+        <blockquote class="bio-pullquote">
+          &ldquo;I like to spend my time traveling, taking pictures, and eating really good food. I'll start writing in
+          third person when I've received a Lucie award.&rdquo;
+        </blockquote>
+
+        <p>If an agency, brand, or a label marketing representative is reading this, I'd like to say <em>I'm pretty
+            great, and yeah, I would hire me</em>.</p>
+      </div>
+
+      <div class="bio-clients">
+        <span class="section-label">Selected Clients &amp; Agencies</span>
+        <ul class="client-list">
+          <li>State Model Management</li>
+          <li>NEXT Models NYC</li>
+          <li>BESPOKE Retouching</li>
+          <li>Commercial &amp; Editorial Studios</li>
+          <li>Beauty &amp; Athletic Campaigns</li>
+        </ul>
+      </div>
+
+      <div class="bio-contact-box">
+        <span class="section-label">Direct Inquiries</span>
+        <div class="email-copy-bar">
+          <a href="mailto:abeerakhanphotography@gmail.com?subject=Photo%20Inquiry%20-%20Abeera%20Khan"
+            class="email-val">abeerakhanphotography@gmail.com</a>
+          <button class="copy-btn" id="copy-email-btn">Copy</button>
+        </div>
+        <a href="mailto:abeerakhanphotography@gmail.com?subject=Photo%20Inquiry%20-%20Abeera%20Khan"
+          class="contact-action-btn">
+          Send an email <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="bio-social-buttons">
+        <a href="https://instagram.com/abeerahk" target="_blank" rel="noopener" class="bio-social-item">
+          <span>Instagram</span><span class="bio-social-handle">@abeerahk &nearr;</span>
+        </a>
+        <a href="https://twitter.com/abeerahk" target="_blank" rel="noopener" class="bio-social-item">
+          <span>Twitter / X</span><span class="bio-social-handle">@abeerahk &nearr;</span>
+        </a>
+      </div>
+
+      <div class="bio-footer">
+        <p>&copy; 2026 Abeera Khan</p>
+      </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- INQUIRY MODAL -->
+  <div class="modal-scrim" id="inquiry-backdrop"></div>
+  <div class="inquiry-dialog" id="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-title">
+    <figure class="dialog-visual" aria-hidden="true">
+      <img src="" alt="" id="dialog-visual-img">
+      <figcaption class="dialog-visual-cap">
+        <span class="dialog-visual-quote">&ldquo;Available for editorial shoots, agency tests, campaigns and retouching,
+          worldwide.&rdquo;</span>
+        <span class="dialog-visual-model" id="dialog-visual-model"></span>
+      </figcaption>
+    </figure>
+    <div class="dialog-main">
+    <div class="dialog-top">
+      <div>
+        <span class="eyebrow">Inquiry</span>
+        <h3 class="dialog-title" id="inquiry-title">Let&rsquo;s work <em>together</em></h3>
+      </div>
+      <button class="dialog-close" id="close-inquiry-btn" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <form class="dialog-form" id="inquiry-form">
+      <div class="input-row">
+        <div class="input-wrap">
+          <label for="inq-name">Name / Agency</label>
+          <input type="text" id="inq-name" required placeholder="Jane Doe, Next Models">
+        </div>
+        <div class="input-wrap">
+          <label for="inq-email">Email</label>
+          <input type="email" id="inq-email" required placeholder="name@agency.com">
+        </div>
+      </div>
+      <div class="input-wrap">
+        <label for="inq-project-type">Project Type</label>
+        <select id="inq-project-type">
+          <option value="Editorial Shoot">Editorial Shoot</option>
+          <option value="Model Agency Portfolio / Tests">Model Agency Portfolio / Tests</option>
+          <option value="Beauty / Commercial Campaign">Beauty / Commercial Campaign</option>
+          <option value="Creative Retouching">Creative Retouching</option>
+          <option value="Other Project">Other Creative Commission</option>
+        </select>
+      </div>
+      <div class="input-wrap">
+        <label for="inq-msg">Details</label>
+        <textarea id="inq-msg" rows="3" placeholder="Shoot details, timeline, or mood board..."></textarea>
+      </div>
+      <button type="submit" class="submit-dialog-btn">Send Inquiry <span aria-hidden="true">&rarr;</span></button>
+      <p class="dialog-note">Or write directly to <a href="mailto:abeerakhanphotography@gmail.com">abeerakhanphotography@gmail.com</a></p>
+    </form>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX (NO NUMBERS ON ARTWORK) -->
+  <div class="lightbox-stage" id="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Photograph viewer">
+    <div class="lightbox-backdrop" id="lightbox-overlay"></div>
+
+    <div class="lightbox-bar">
+      <div class="lb-title-wrap">
+        <span class="lb-model-name" id="lb-title"></span>
+        <span class="lb-category-name" id="lb-meta"></span>
+      </div>
+      <div class="lb-buttons">
+        <button class="lb-btn" id="lb-zoom-toggle" title="Toggle full scale (Z)" aria-label="Toggle zoom">
+          <svg class="icon-z-in" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="11" y1="8" x2="11" y2="14"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+          <svg class="icon-z-out" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.6">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </button>
+        <button class="lb-btn" id="lb-share-btn" title="Copy image link" aria-label="Copy image link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>
+        </button>
+        <button class="lb-btn close-lb" id="close-lightbox-btn" title="Close (Esc)" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="lightbox-viewport" id="lightbox-stage">
+      <button class="lb-nav prev" id="lb-prev-btn" aria-label="Previous">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+
+      <div class="lb-image-holder" id="lb-img-container">
+        <img src="" alt="" id="lightbox-img" class="lb-main-image">
+      </div>
+
+      <button class="lb-nav next" id="lb-next-btn" aria-label="Next">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Filmstrip Thumbnails -->
+    <div class="filmstrip-bar">
+      <div class="filmstrip-track" id="lb-thumbnails-strip"></div>
+    </div>
+  </div>
+
+  <!-- Hover cursor label (desktop only) -->
+  <div class="cursor-label" id="cursor-label" aria-hidden="true"><span>View</span></div>
+
+  <!-- Notification Toast -->
+  <div class="site-toast" id="toast-notice" role="status" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
